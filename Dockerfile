@@ -1,4 +1,4 @@
-FROM alpine/helm:3.0.0-alpha.1
+FROM alpine/helm:3.0.0-alpha.2
 LABEL maintainer="peter.niederlag@datenbetrieb.de"
 RUN apk add --update --no-cache jq
 RUN apk add --update --no-cache curl && \

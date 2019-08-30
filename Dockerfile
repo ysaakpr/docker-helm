@@ -6,7 +6,7 @@ FROM alpine:edge as builder
 # variable "VERSION" must be passed as docker environment variables during the image build
 # docker build --no-cache --build-arg VERSION=2.12.0 -t alpine/helm:2.12.0 .
 
-ENV VERSION=3.0.0-beta.1
+ENV VERSION=3.0.0-beta.2
 
 # ENV BASE_URL="https://storage.googleapis.com/kubernetes-helm"
 ENV BASE_URL="https://get.helm.sh"

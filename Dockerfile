@@ -23,7 +23,7 @@ WORKDIR /apps
 # final image
 ############
 
-FROM alpine:edge
+FROM alpine:3.10
 COPY --from=builder /usr/bin/helm /usr/bin/helm
 #FROM alpine/helm:3.0.0-beta.1
 LABEL maintainer="peter.niederlag@datenbetrieb.de"

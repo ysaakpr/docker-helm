@@ -23,16 +23,14 @@ WORKDIR /apps
 # final image
 ############
 
-FROM alpine:3.10
+FROM golang:latest
 COPY --from=builder /usr/bin/helm /usr/bin/helm
 #FROM alpine/helm:3.0.0-beta.1
-LABEL maintainer="peter.niederlag@datenbetrieb.de"
+LABEL maintainer="vp@naturecult.in"
 #RUN apk add --update --no-cache jq
-RUN apk add --update --no-cache curl && \
-    curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
-    mv ./kubectl /usr/bin/kubectl && \
-    apk del curl
+    mv ./kubectl /usr/bin/kubectl
 
 ENTRYPOINT ["helm"]
 CMD ["--help"]
